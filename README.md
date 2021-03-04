@@ -1,1 +1,1 @@
-# TRUTH
+#FIND THE TRUTH
