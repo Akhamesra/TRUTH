@@ -48,14 +48,15 @@ def predict():
     data = request.json
     link = data["link"]
     test = c(link)
-    test_x = wordopt(test)
+    test_x = wordopt(test[0])
     tfidf_x = vectorizer.transform([test_x])
     pred = model.predict(tfidf_x)
-    result = math.ceil(model._predict_proba_lr(tfidf_x)[0][1]*100)
-    output = {'results': result}
+    result =[]
+    result.append(math.ceil(model._predict_proba_lr(tfidf_x)[0][1]*100))
+    output = {'results': result[0],'head':test[1]}
     #print(getfakeness(model._predict_proba_lr(tfidf_x)[0][1]))
-    return jsonify(results=output)
+    return jsonify(results=output['results'],heading = output['head'])
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True) 
