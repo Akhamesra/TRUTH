@@ -3,6 +3,7 @@ def keyword_extraction(link):
     test = c(link)
     import nltk.tokenize as nt
     import nltk
+    nltk.data.path.append('./nltk_data/')
     text=test[1]
     ss=nt.sent_tokenize(text)
     tokenized_sent=[nt.word_tokenize(sent) for sent in ss]
