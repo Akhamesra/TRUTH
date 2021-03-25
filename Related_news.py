@@ -34,7 +34,8 @@ def find(link):
         url = template.format(search)
         articles = []
         links = set()
-        
+        print(search)
+        print(url)
         while True:
             response = requests.get(url, headers=headers)
             soup = BeautifulSoup(response.text, 'html.parser')
@@ -60,15 +61,12 @@ def find(link):
         return articles[:2]
 
     keywords = keyword_extraction(link)
+    print(keywords)
 
-    articles1 = get_the_news(keywords[0]+' '+keywords[1])
-    articels2 = get_the_news(keywords[1]+' '+keywords[2])
+    #articles1 = get_the_news(keywords[0]+' '+keywords[1])
+    #articels2 = get_the_news(keywords[1]+' '+keywords[2])
+    #final_article = articles1+ articels2
 
-    final_article = articles1+ articels2
-    # with open('results.csv', 'w', newline='', encoding='utf-8') as f:
-    #         writer = csv.writer(f)
-    #         writer.writerow(['Headline', 'Source', 'Posted', 'Description', 'Link'])
-    #         writer.writerows(final_article)
-    return final_article
+    return "END"
 
-print(find("https://www.indiatoday.in/technology/news/story/disha-ravi-arrest-puts-privacy-of-all-google-india-users-in-doubt-1769772-2021-02-16"))
+#print(find("https://zeenews.india.com/buzz/after-woman-accuses-zomato-delivery-guy-of-assault-latter-alleges-she-hit-her-nose-with-her-own-ring-2347297.html"))
