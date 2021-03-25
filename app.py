@@ -55,7 +55,6 @@ def predict():
     result =[]
     result.append(math.ceil(model._predict_proba_lr(tfidf_x)[0][1]*100))
     output = {'results': result[0],'head':test[1]}
-    #print(getfakeness(model._predict_proba_lr(tfidf_x)[0][1]))
     return jsonify(results=output['results'],heading = output['head'])
 
 @app.route("/related",methods = ['POST'])

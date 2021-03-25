@@ -34,8 +34,6 @@ def find(link):
         url = template.format(search)
         articles = []
         links = set()
-        print(search)
-        print(url)
         while True:
             response = requests.get(url, headers=headers)
             soup = BeautifulSoup(response.text, 'html.parser')
@@ -55,18 +53,12 @@ def find(link):
                 sleep(1)
             except AttributeError:
                 break
-        
-            
-
         return articles[:2]
 
     keywords = keyword_extraction(link)
-    print(keywords)
-
-    #articles1 = get_the_news(keywords[0]+' '+keywords[1])
-    #articels2 = get_the_news(keywords[1]+' '+keywords[2])
-    #final_article = articles1+ articels2
-
-    return "END"
+    articles1 = get_the_news(keywords[0]+' '+keywords[1])
+    articels2 = get_the_news(keywords[1]+' '+keywords[2])
+    final_article = articles1+ articels2
+    return final_article
 
 #print(find("https://zeenews.india.com/buzz/after-woman-accuses-zomato-delivery-guy-of-assault-latter-alleges-she-hit-her-nose-with-her-own-ring-2347297.html"))
