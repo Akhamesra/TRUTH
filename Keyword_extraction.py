@@ -56,4 +56,4 @@ def keyword_extraction(link):
 
 
 
-#print(keyword_extraction("https://www.indiatoday.in/cities/bengaluru/story/zomato-delivery-executive-allegation-bengaluru-woman-1778362-2021-03-12"))
+#print(keyword_extraction("https://www.indiatoday.in/technology/news/story/disha-ravi-arrest-puts-privacy-of-all-google-india-users-in-doubt-1769772-2021-02-16"))

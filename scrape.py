@@ -1,14 +1,12 @@
 def c(link):
-    #import requests 
-    from urllib.request import Request, urlopen
+    import requests 
     import pandas as pd 
     from bs4 import BeautifulSoup 
     import csv
     # link for extract html data 
     def getdata(url): 
-        req = Request(url, headers={'User-Agent': 'Mozilla/5.0'})
-        webpage = urlopen(req).read()
-        return webpage
+        r = requests.get(url) 
+        return r.text 
 
     htmldata = getdata(link) 
     soup = BeautifulSoup(htmldata, 'html.parser') 
@@ -22,3 +20,4 @@ def c(link):
     
     return fdata,hdata
 
+#print(c("https://www.indiatoday.in/technology/news/story/disha-ravi-arrest-puts-privacy-of-all-google-india-users-in-doubt-1769772-2021-02-16"))

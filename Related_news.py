@@ -71,4 +71,4 @@ def find(link):
     #         writer.writerows(final_article)
     return final_article
 
-#rint(find("https://www.indiatoday.in/cities/bengaluru/story/zomato-delivery-executive-allegation-bengaluru-woman-1778362-2021-03-12"))
+print(find("https://www.indiatoday.in/technology/news/story/disha-ravi-arrest-puts-privacy-of-all-google-india-users-in-doubt-1769772-2021-02-16"))
