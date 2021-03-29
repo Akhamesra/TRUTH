@@ -74,6 +74,5 @@ def related():
 
     return jsonify(news_1 = result[3], news_2 = result[2], news_3 = result[1],news_4 = result[0])
 
-
 if __name__ == '__main__':
     app.run(debug=True)

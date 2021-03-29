@@ -56,4 +56,4 @@ def keyword_extraction(link):
 
 
 
-#print(keyword_extraction("https://zeenews.india.com/buzz/after-woman-accuses-zomato-delivery-guy-of-assault-latter-alleges-she-hit-her-nose-with-her-own-ring-2347297.html"))
+#print(keyword_extraction("https://zeenews.india.com/india/bengal-bjp-chief-dilip-ghoshs-alleged-wear-bermuda-remark-sparks-outrage-tmc-calls-it-distasteful-2350280.html?UTM_SRC=breakingnews"))
