@@ -3,11 +3,26 @@ def keyword_extraction(link):
     test = c(link)
     import nltk.tokenize as nt
     import nltk
+    import re
+    import string
+    def wordopt(text):
+        text = re.sub('\[.*?\]', '', text)
+        text = re.sub("\\W"," ",text) 
+        text = re.sub('https?://\S+|www\.\S+', '', text)
+        text = re.sub('<.*?>+', '', text)
+        text = re.sub('[%s]' % re.escape(string.punctuation), '', text)
+        text = re.sub('\n', '', text)
+        text = re.sub('\w*\d\w*', '', text)    
+        return text
+
     nltk.data.path.append('./nltk_data/')
-    text=test[1]
+
+    text=wordopt(test[1])
+    
     ss=nt.sent_tokenize(text)
     tokenized_sent=[nt.word_tokenize(sent) for sent in ss]
     pos_sentences=[nltk.pos_tag(sent) for sent in tokenized_sent ]
+    
     i = 0 
     l =[]
     it = iter(range(len(pos_sentences[0])-1))
@@ -17,9 +32,11 @@ def keyword_extraction(link):
             i=next(it)
         else:
             l.append([pos_sentences[0][i][0] ,pos_sentences[0][i][1]])
+
     nouns = [word.lower() for (word,pos) in l if(pos=="NNP")]
     words = [sent.lower() for (sent,pos) in l if(pos!="NNP")]   
     words = ' '.join(words)
+
 
     def sort_score(matrix):
             tuples = zip(matrix.col, matrix.data)
@@ -51,9 +68,9 @@ def keyword_extraction(link):
     result =[]
     for k in keywords:
         result.append(k)
-    
+
     return nouns+result
 
 
 
-#print(keyword_extraction("https://zeenews.india.com/india/bengal-bjp-chief-dilip-ghoshs-alleged-wear-bermuda-remark-sparks-outrage-tmc-calls-it-distasteful-2350280.html?UTM_SRC=breakingnews"))
+#print(keyword_extraction("https://zeenews.india.com/india/isro-gaganyaan-indian-pvt-firm-delivers-component-for-crew-module-2348781.html"))

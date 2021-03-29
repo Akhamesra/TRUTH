@@ -59,12 +59,13 @@ def find(link):
     final_article = []
     i=0
 
+    # print(keywords[0]+' '+keywords[0+1])
+    # print(keywords[1]+' '+keywords[1+1])
+
     while(len(final_article) < 4 ):
         final_article = final_article + get_the_news(keywords[i]+' '+keywords[i+1])
         i=i+1
-    # articles1 = get_the_news(keywords[0]+' '+keywords[1])
-    # articels2 = get_the_news(keywords[1]+' '+keywords[2])
-    # final_article = articles1+ articels2
-    return final_article
 
-#print(find("https://zeenews.india.com/india/bengal-bjp-chief-dilip-ghoshs-alleged-wear-bermuda-remark-sparks-outrage-tmc-calls-it-distasteful-2350280.html?UTM_SRC=breakingnews"))
+    return final_article 
+
+#print(find("https://www.indiatoday.in/coronavirus-outbreak/story/covid-thousands-celebrate-holi-guwahati-no-mask-assam-cm-sarbananda-sonowal-visit-1784834-2021-03-29"))

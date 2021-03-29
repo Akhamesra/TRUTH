@@ -16,4 +16,4 @@ def c(link):
     
     return fdata,hdata
 
-#print(c("https://zeenews.india.com/buzz/after-woman-accuses-zomato-delivery-guy-of-assault-latter-alleges-she-hit-her-nose-with-her-own-ring-2347297.html"))
+#print(c("https://www.indiatoday.in/coronavirus-outbreak/story/covid-thousands-celebrate-holi-guwahati-no-mask-assam-cm-sarbananda-sonowal-visit-1784834-2021-03-29"))

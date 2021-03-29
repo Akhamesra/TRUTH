@@ -62,17 +62,17 @@ def related():
     data = request.json
     link = data["link"]
     result = find(link)
-    for dic in result:
-      l = dic["link"]
-      test = c(l)
-      test_x = wordopt(test[0])
-      tfidf_x = vectorizer.transform([test_x])
-      pred = model.predict(tfidf_x)
-      real_fake =[]
-      real_fake.append(math.ceil(model._predict_proba_lr(tfidf_x)[0][1]*100))
-      dic["real"] = real_fake[0]
+    # for dic in result:
+    #   l = dic["link"]
+    #   test = c(l)
+    #   test_x = wordopt(test[0])
+    #   tfidf_x = vectorizer.transform([test_x])
+    #   pred = model.predict(tfidf_x)
+    #   real_fake =[]
+    #   real_fake.append(math.ceil(model._predict_proba_lr(tfidf_x)[0][1]*100))
+    #   dic["real"] = real_fake[0]
 
-    return jsonify(news_1 = result[3], news_2 = result[2], news_3 = result[1],news_4 = result[0])
+    return jsonify(news_1 = result[0], news_2 = result[1], news_3 = result[2],news_4 = result[3])
 
 if __name__ == '__main__':
     app.run(debug=True)
