@@ -71,8 +71,10 @@ def related():
     #   real_fake =[]
     #   real_fake.append(math.ceil(model._predict_proba_lr(tfidf_x)[0][1]*100))
     #   dic["real"] = real_fake[0]
-
-    return jsonify(news_1 = result[0], news_2 = result[1], news_3 = result[2],news_4 = result[3])
+    if(len(result)>=4):
+      return jsonify(news_1 = result[0], news_2 = result[1], news_3 = result[2],news_4 = result[3])
+    else:
+      return jsonify(news = str("Not enough related news"))
 
 if __name__ == '__main__':
     app.run(debug=True)

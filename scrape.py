@@ -16,4 +16,4 @@ def c(link):
     
     return fdata,hdata
 
-#print(c("https://www.indiatoday.in/coronavirus-outbreak/story/covid-thousands-celebrate-holi-guwahati-no-mask-assam-cm-sarbananda-sonowal-visit-1784834-2021-03-29"))
+#print(c("https://www.indiatvnews.com/news/india/earthquake-meghalaya-shillong-tremors-epicentre-magnitude-damage-694265"))

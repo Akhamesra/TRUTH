@@ -18,24 +18,29 @@ def keyword_extraction(link):
     nltk.data.path.append('./nltk_data/')
 
     text=wordopt(test[1])
-    
     ss=nt.sent_tokenize(text)
     tokenized_sent=[nt.word_tokenize(sent) for sent in ss]
     pos_sentences=[nltk.pos_tag(sent) for sent in tokenized_sent ]
     
     i = 0 
     l =[]
-    it = iter(range(len(pos_sentences[0])-1))
+    it = iter(range(len(pos_sentences[0])))
+
     for i in it:
-        if(pos_sentences[0][i][1] == pos_sentences[0][i+1][1] ):
-            l.append([pos_sentences[0][i][0] +' '+ pos_sentences[0][i+1][0],pos_sentences[0][i][1]])
-            i=next(it)
+        if(i<len(pos_sentences[0])-1):
+            if(pos_sentences[0][i][1] == pos_sentences[0][i+1][1] ):
+                l.append([pos_sentences[0][i][0] +' '+ pos_sentences[0][i+1][0],pos_sentences[0][i][1]])
+                i=next(it)
+                
+            else:
+                l.append([pos_sentences[0][i][0] ,pos_sentences[0][i][1]])
         else:
             l.append([pos_sentences[0][i][0] ,pos_sentences[0][i][1]])
 
     nouns = [word.lower() for (word,pos) in l if(pos=="NNP")]
     words = [sent.lower() for (sent,pos) in l if(pos!="NNP")]   
     words = ' '.join(words)
+
 
 
     def sort_score(matrix):
@@ -73,4 +78,4 @@ def keyword_extraction(link):
 
 
 
-#print(keyword_extraction("https://zeenews.india.com/india/isro-gaganyaan-indian-pvt-firm-delivers-component-for-crew-module-2348781.html"))
+#print(keyword_extraction("https://www.indiatvnews.com/news/india/earthquake-meghalaya-shillong-tremors-epicentre-magnitude-damage-694265"))

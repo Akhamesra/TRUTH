@@ -62,10 +62,10 @@ def find(link):
     # print(keywords[0]+' '+keywords[0+1])
     # print(keywords[1]+' '+keywords[1+1])
 
-    while(len(final_article) < 4 ):
+    while(len(final_article) < 4 and i<len(keywords)-1):
         final_article = final_article + get_the_news(keywords[i]+' '+keywords[i+1])
         i=i+1
-
+    
     return final_article 
 
-#print(find("https://www.indiatoday.in/coronavirus-outbreak/story/covid-thousands-celebrate-holi-guwahati-no-mask-assam-cm-sarbananda-sonowal-visit-1784834-2021-03-29"))
+#print(find("https://www.indiatvnews.com/entertainment/celebrities/fatima-sana-shaikh-tests-positive-for-covid-19-quarantines-at-home-694231"))
